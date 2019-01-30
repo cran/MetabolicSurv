@@ -1,0 +1,25 @@
+---
+title: "MetabolicSurv: A Biomarker Validation approach for Classification and Predicting Survival Using Metabolomic Signature"
+author: "Olajumoke Evangelina Owokotomo"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## SHORT SUMMARY
+R package `MetabolicSurv` identifies metabolic biomarker signature for metabolic data by dis- covering predictive metabolite for predicting survival and classifying patients into risk groups. Classifiers are constructed as a linear combination of predictive/important metabolites, prog- nostic factors and treatment effects if necessary. Several method were implemented to ob- tain the classifiers along with various validation procedures such as majority votes technique, LASSO, Elastic net based classifiers and as function of scores of first Priciple component anal- ysis (PCA) or Partial least scores (PLS) methods. The package can either use the whole metabolomic matrix or can be reduced using the dimension reduction methods such as PLS and PCA, using the scores from the first component alone.
+
+Sensitivity analysis on the quantile measure used for the classification can be accessed to check the deviation of the classification group based on the quantile specified. Large scale cross validation can be performed in order to investigate the mostly selected predictive metabolites and for internal validation using the test dataset. During the evaluation process, validation is accessed using the hazard ratios (HR) distribution for the low risk group on the test dataset. Inference is mainly based on resampling methods, permutations in which null distribution of the estimated HR is approximated. 
+
+*Keywords: Biosurvmet; Biomarkers; Classification; Predictive metabolite ; Survival*
+
