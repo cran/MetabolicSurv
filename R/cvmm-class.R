@@ -110,13 +110,13 @@ setMethod(f="plot", signature = "cvmm",
             ll <- eval(dotsCall)
             if(!hasArg("xlab")) ll$xlab <- ""
 
-            if(!hasArg("ylab")) ll$ylab <- "HR from the Cross validation"
-            if(!hasArg("main")) ll$main <- paste("Estimated HR of low risk group for Metabolite ", which, "\n Number of CVs = ",x@Ncv,sep="")
-            if(!hasArg("cex.lab")) ll$cex.lab <- 1.2
-            if(!hasArg("cex.main")) ll$cex.main <- 1.3
+            if(!hasArg("ylab")) ll$ylab <- "HR estimate"
+            if(!hasArg("main")) ll$main <- paste("Estimated HR of Low risk group for Metabolite ", which, "\n Number of CVs = ",x@Ncv,sep="")
+            if(!hasArg("cex.lab")) ll$cex.lab <- 1.5
+            if(!hasArg("cex.main")) ll$cex.main <- 1
             if(!hasArg("ylim")) ll$ylim <- c(0,15)
             if(!hasArg("col")) ll$col <- 2:3
-            if(!hasArg("names"))  ll$names=c("Train","Test")
+            if(!hasArg("names"))  ll$names=c("Training","Test")
             ll$x<-Results
             do.call(boxplot,args=ll)
             return(invisible())

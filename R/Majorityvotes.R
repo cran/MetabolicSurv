@@ -2,7 +2,7 @@
 #'
 #' The Function fits cox proportional hazard model and does classification based on the majority votes.
 #'
-#' The Function fits cox proportional hazard model and does classification based on the majority votes while estimating the Hazard ratio of the low risk group. The function firstly count the number of Low risk classification for each subject based on the metabolite specific analysis which determ,ines the majority votes. In addition, It visualizes the metabolic specific calssification for the subjects. 25 ssubjects is taken for visualization purpose.
+#' The Function fits cox proportional hazard model and does classification based on the majority votes while estimating the Hazard ratio of the low risk group. The function firstly count the number of low risk classification for each subject based on the metabolite specific analysis which determines the majority votes. In addition, It visualizes the metabolic specific calssification for the subjects. 25 subjects is taken for visualization purpose.
 #' @param Result An object obtained from the metabolite specific analysis (\code{\link[MetabolicSurv]{MSpecificCoxPh}}) which is of class "ms"
 #' @param Prognostic A dataframe containing possible prognostic(s) factor and/or treatment effect to be used in the model.
 #' @param Censor A vector of censoring indicator

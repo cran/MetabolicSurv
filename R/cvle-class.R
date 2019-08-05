@@ -7,7 +7,7 @@
 #' @exportClass cvle
 #' @param x	 A cvle class object
 #' @param y	 missing
-#' @param type Plot type. 1 distribution of the HR under test and train data. 2 HR vs number selected metabolites. 3. Top mostly selected 30 metabolites.
+#' @param type Plot type. 1 distribution of the HR under training and test set. 2 HR vs number selected metabolites.
 #' @param  object A cvle class object
 #' @param ...	 The usual extra arguments to generic functions — see \code{\link[graphics]{plot}}, \code{\link[graphics]{plot.default}}
 #' @slot Coef.mat A matrix of coefficients with rows equals to number of cross validations and columns equals to number of metabolites.
@@ -106,15 +106,15 @@ print(names(sFreq)[1:maxG])
                       if (class(x)!="cvle") stop("Invalid class object")
                       if (type==1) {
 
-                        DistHR<-data.frame(HRTest=x@HRTest[,1],HRTrain=x@HRTrain[,1])
+                        DistHR<-data.frame(HRTrain=x@HRTrain[,1],HRTest=x@HRTest[,1])
 
-                        colnames(DistHR)<-c("Test","Train")
+                        colnames(DistHR)<-c("Training","Test")
                         dotsCall <- substitute(list(...))
                         ll <- eval(dotsCall)
                         if(!hasArg("xlab")) ll$xlab <- ""
                         if(!hasArg("ylab")) ll$ylab <- "HR estimate"
-                        ll$main <- "Distribution of HR on Test and Train Data \n for low risk group"
-                        if(!hasArg("cex.lab")) ll$cex.lab <- 0.8
+                        ll$main <- "Distribution of HR on Training and Test Set \n for Low risk group"
+                        if(!hasArg("cex.lab")) ll$cex.lab <- 1.5
                         if(!hasArg("cex.main")) ll$cex.main <- 1
                         if(!hasArg("col")) ll$col <- 2:3
                         ll$x<-DistHR
@@ -140,32 +140,32 @@ print(names(sFreq)[1:maxG])
 
                       }
 
-                      if (type==3) {
-
-                        Freq=colSums(x@Met.mat)
-                        names(Freq)<-rownames(x@Mdata)
-                        sFreq<-sort(Freq,decreasing = TRUE)
-                        sFreq<-sFreq[sFreq>0]
-
-                        maxG<-length(sFreq)
-                        if (maxG>30) maxG<-30
-
-
-                        dotsCall <- substitute(list(...))
-                        lll <- eval(dotsCall)
-
-                        lll$height<-sFreq[1:maxG]
-                        if(!hasArg("xlab" ))   lll$xlab<-""
-                        if(!hasArg("ylab" ))   lll$ylab<-"Frequency"
-                        if(!hasArg("main"))    lll$main<-"Mostly Selected Metabolites"
-                        lll$col<-rainbow(maxG)
-                        lll$names<-names(sFreq)[1:maxG]
-                        if(!hasArg("cex.lab")) lll$cex.lab <- 1
-                        if(!hasArg("las"))   lll$las<-2
-                        lll$cex.names<-0.65
-                        do.call(barplot,args=lll)
-
-                      }
+                      # if (type==3) {
+                      #
+                      #   Freq=colSums(x@Met.mat)
+                      #   names(Freq)<-rownames(x@Mdata)
+                      #   sFreq<-sort(Freq,decreasing = TRUE)
+                      #   sFreq<-sFreq[sFreq>0]
+                      #
+                      #   maxG<-length(sFreq)
+                      #   if (maxG>30) maxG<-30
+                      #
+                      #
+                      #   dotsCall <- substitute(list(...))
+                      #   lll <- eval(dotsCall)
+                      #
+                      #   lll$height<-sFreq[1:maxG]
+                      #   if(!hasArg("xlab" ))   lll$xlab<-""
+                      #   if(!hasArg("ylab" ))   lll$ylab<-"Frequency"
+                      #   if(!hasArg("main"))    lll$main<-"Mostly Selected Metabolites"
+                      #   lll$col<-rainbow(maxG)
+                      #   lll$names<-names(sFreq)[1:maxG]
+                      #   if(!hasArg("cex.lab")) lll$cex.lab <- 1
+                      #   if(!hasArg("las"))   lll$las<-2
+                      #   lll$cex.names<-0.65
+                      #   do.call(barplot,args=lll)
+                      #
+                      # }
 
                     }
           )

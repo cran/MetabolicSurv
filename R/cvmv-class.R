@@ -92,10 +92,10 @@ setMethod("plot", signature(x="cvmv"),
             dotsCall <- substitute(list(...))
             ll <- eval(dotsCall)
             if(!hasArg("xlab")) ll$xlab <- "Cross Validation index"
-            if(!hasArg("ylab")) ll$ylab <- "HR"
-            ll$main <- "Estimated HR on Test Data \n for low risk group"
-            if(!hasArg("cex.lab")) ll$cex.lab <- 1.2
-            if(!hasArg("cex.main")) ll$cex.main <- 1.3
+            if(!hasArg("ylab")) ll$ylab <- "HR estimate"
+            ll$main <- "Estimated HR on Test Set \n for Low risk group"
+            if(!hasArg("cex.lab")) ll$cex.lab <- 1.5
+            if(!hasArg("cex.main")) ll$cex.main <- 1
             if(!hasArg("col")) ll$col <- 2
 
             ll$x<-HRTest[,1]
@@ -117,8 +117,12 @@ setMethod("plot", signature(x="cvmv"),
 
             Results<-data.frame(HRTrain=HRTrain[,1],HRTest=as.numeric(HRTest[,1]))
             ll$x<-Results
-            ll$names<-c("Train ","Test ")
-            ll$main <- "Estimated HR on Train and Test Data \n for low risk group"
+            ll$names<-c("Training ","Test ")
+            ll$main <- "Estimated HR on Training and Test Set \n for Low risk group"
+            if(!hasArg("xlab")) ll$xlab <- ""
+            if(!hasArg("ylab")) ll$ylab <- "HR estimate"
+            if(!hasArg("cex.lab")) ll$cex.lab <- 1.5
+            if(!hasArg("cex.main")) ll$cex.main <- 1
             if(!hasArg("col")) ll$col <- 2:3
             do.call(boxplot,args=ll)
           })

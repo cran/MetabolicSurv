@@ -154,7 +154,7 @@ CVPcaPls<-function(Fold = 3,
   #------------------------  END of FOR LOOP :1
 
 
-  Results<-data.frame(HRTrain=HRp.train[,1],HRTest=as.numeric(HRp.test[,1]))
+  Results<-data.frame(Training=HRp.train[,1],Test=as.numeric(HRp.test[,1]))
 
   return(new("cvpp",Results=Results,Ncv=Ncv,Method=DR,CVtrain=cv.train,CVtest=cv.test,Select=n.mets))
 }

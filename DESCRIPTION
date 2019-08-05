@@ -2,7 +2,7 @@ Package: MetabolicSurv
 Type: Package
 Title: A Biomarker Validation Approach for Classification and
         Predicting Survival Using Metabolomics Signature
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(
        person("Olajumoke Evangelina","Owokotomo",email="olajumoke.owokotomo@uhasselt.be",role=c("aut","cre")),
        person("Ziv","Shkedy",email="ziv.shkedy@uhasselt.be",role="aut"))
@@ -27,8 +27,8 @@ RoxygenNote: 6.1.1
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2019-01-21 06:25:34 UTC; Olajumoke
+Packaged: 2019-08-05 08:57:05 UTC; lucp2490
 Author: Olajumoke Evangelina Owokotomo [aut, cre],
   Ziv Shkedy [aut]
 Repository: CRAN
-Date/Publication: 2019-01-30 23:16:23 UTC
+Date/Publication: 2019-08-05 10:20:02 UTC

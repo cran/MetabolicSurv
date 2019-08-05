@@ -28,7 +28,7 @@ A list is returned with the following values
 The Function fits cox proportional hazard model and does classification based on the majority votes.
 }
 \details{
-The Function fits cox proportional hazard model and does classification based on the majority votes while estimating the Hazard ratio of the low risk group. The function firstly count the number of Low risk classification for each subject based on the metabolite specific analysis which determ,ines the majority votes. In addition, It visualizes the metabolic specific calssification for the subjects. 25 ssubjects is taken for visualization purpose.
+The Function fits cox proportional hazard model and does classification based on the majority votes while estimating the Hazard ratio of the low risk group. The function firstly count the number of low risk classification for each subject based on the metabolite specific analysis which determines the majority votes. In addition, It visualizes the metabolic specific calssification for the subjects. 25 subjects is taken for visualization purpose.
 }
 \examples{
 ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA

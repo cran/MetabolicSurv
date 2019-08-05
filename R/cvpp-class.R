@@ -93,10 +93,11 @@ setMethod("plot", signature(x="cvpp", y="missing"),
           function(x,  y, ...) {
             dotsCall <- substitute(list(...))
             ll <- eval(dotsCall)
-            if(!hasArg("xlab")) ll$xlab <- "Risk groups"
-            if(!hasArg("ylab")) ll$ylab <- "Cross Validated HR"
-            if(!hasArg("main")) ll$main <- paste("HR for Low risk group\n by ", x@Method,sep="")
+            if(!hasArg("xlab")) ll$xlab <- ""
+            if(!hasArg("ylab")) ll$ylab <- "HR estimate"
+            if(!hasArg("main")) ll$main <- paste("Distribution of HR on Training and Test Set \n for Low risk group using ", x@Method,sep="")
             if(!hasArg("cex.lab")) ll$cex.lab <- 1.5
+            if(!hasArg("cex.main")) ll$cex.main <- 1
             if(!hasArg("ylim")) ll$ylim <- c(0,max(x@Results))
             if(!hasArg("col")) ll$col <- c(2,3)
             ll$x<-x@Results
