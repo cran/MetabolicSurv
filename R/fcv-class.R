@@ -53,9 +53,7 @@ setClass("fcv",representation(Runtime="vector",Fold="numeric", Ncv="numeric",Nic
 #' @name fcv
 #' @rdname fcv-class
 #' @exportMethod show
-#setGeneric("show", function(object) standardGeneric("show"))
-
-#' @rdname fcv-class
+# #' @rdname cvsim-class
 #' @aliases show,fcv-method
 setMethod("show",signature="fcv"
           , function(object){
@@ -69,9 +67,7 @@ setMethod("show",signature="fcv"
 #' @name fcv-class
 #' @rdname fcv-class
 #' @exportMethod summary
-#setGeneric("summary", function(object,...) standardGeneric("summary"))
-
-#' @rdname fcv-class
+# #' @rdname cvsim-class
 #' @aliases summary,fcv-method
 setMethod("summary",signature="fcv", function(object){
   cat("Summary of Further Cross Validations\n")
@@ -83,12 +79,10 @@ setMethod("summary",signature="fcv", function(object){
 
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name fcv-class
 #' @rdname fcv-class
 #' @exportMethod plot
-
-#' @rdname fcv-class
+# #' @rdname cvsim-class
 #' @aliases plot,fcv,missing-method
 #' @aliases fcv-method
 setMethod("plot", signature(x="fcv", y="missing"),

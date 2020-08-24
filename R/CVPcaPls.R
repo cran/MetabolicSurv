@@ -25,8 +25,6 @@
 #' \code{\link[MetabolicSurv]{SurvPcaClass}}
 #' @references
 #' \insertRef{ye1}{MetabolicSurv}
-#'
-#' \insertRef{ye2}{MetabolicSurv}
 #' @examples
 #' ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA
 #' Data = MSData(nPatients = 100, nMet = 150, Prop = 0.5)

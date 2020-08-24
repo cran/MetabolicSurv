@@ -4,8 +4,16 @@
 \alias{SurvPcaClass}
 \title{Survival PCA and Classification for metabolic data}
 \usage{
-SurvPcaClass(Survival, Mdata, Censor, Reduce = TRUE, Select = 150,
-  Prognostic = NULL, Plots = FALSE, Quantile = 0.5)
+SurvPcaClass(
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = TRUE,
+  Select = 150,
+  Prognostic = NULL,
+  Plots = FALSE,
+  Quantile = 0.5
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

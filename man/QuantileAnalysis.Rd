@@ -4,9 +4,17 @@
 \alias{QuantileAnalysis}
 \title{Quantile sensitivity analysis}
 \usage{
-QuantileAnalysis(Survival, Mdata, Censor, Reduce = TRUE, Select = 150,
-  Prognostic = NULL, Plots = FALSE, DimMethod = c("PLS", "PCA",
-  "SM"), Alpha = 1)
+QuantileAnalysis(
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = TRUE,
+  Select = 150,
+  Prognostic = NULL,
+  Plots = FALSE,
+  DimMethod = c("PLS", "PCA", "SM"),
+  Alpha = 1
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

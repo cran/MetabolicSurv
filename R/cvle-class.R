@@ -54,7 +54,7 @@ setClass("cvle",representation(Coef.mat="matrix",Runtime="vector",lambda="vector
 #' @exportMethod show
 #setGeneric("show", function(object) standardGeneric("show"))
 
-#' @rdname cvle-class
+# #' @rdname cvle-class
 #' @aliases show,cvle-method
 setMethod("show",signature="cvle"
           , function(object){
@@ -70,7 +70,7 @@ setMethod("show",signature="cvle"
 #' @exportMethod summary
 #setGeneric("summary", function(object,...) standardGeneric("summary"))
 
-#' @rdname cvle-class
+# #' @rdname cvle-class
 #' @aliases summary,cvle-method
 setMethod("summary",signature="cvle"
           , function(object){
@@ -98,7 +98,7 @@ print(names(sFreq)[1:maxG])
 #' @rdname cvle-class
 #' @exportMethod plot
 
-#' @rdname cvle-class
+# #' @rdname cvle-class
 #' @aliases plot,cvle,missing-method
 #' @aliases cvle-method
           setMethod(f ="plot", signature(x="cvle", y="missing"),

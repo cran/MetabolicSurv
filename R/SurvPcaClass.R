@@ -2,7 +2,7 @@
 #'
 #' The function performs principal component analysis (PCA) on Metabolomics matrix and fit Cox proportional hazard model with covariates using also the first PCA as covariates.
 #'
-#' This function can also be used to perform the grid analysis where the grid will be several quantile values and default is 0.5 which is the median cut-off. This function can handle single and multiple metabolites. For larger Metabolomics matrix, this function will reduce largerMetabolomics matrix to smaller version using supervised pca approach and this is by default done and can be control by using the argument Reduce. Other prognostic factors can be included to the model.
+#' This function can also be used to perform the grid analysis where the grid will be several quantile values and default is 0.5 which is the median cut-off. This function can handle single and multiple metabolites. For larger Metabolomics matrix, this function will reduce larger Metabolomics matrix to smaller version using supervised pca approach and this is by default done and can be control by using the argument Reduce. Other prognostic factors can be included to the model.
 #' @param Survival A vector of survival time with length equals to number of subjects
 #' @param Mdata A large or small metabolic profile matrix. A matrix with metabolic profiles where the number of rows should be equal to the number of metabolites and number of columns should be equal to number of patients.
 #' @param Censor A vector of censoring indicator

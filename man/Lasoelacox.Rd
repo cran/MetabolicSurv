@@ -4,9 +4,19 @@
 \alias{Lasoelacox}
 \title{Wapper function for glmnet}
 \usage{
-Lasoelacox(Survival, Censor, Mdata, Prognostic, Quantile = 0.5,
-  Metlist = NULL, Plots = FALSE, Standardize = TRUE, Alpha = 1,
-  Fold = 4, nlambda = 100)
+Lasoelacox(
+  Survival,
+  Censor,
+  Mdata,
+  Prognostic,
+  Quantile = 0.5,
+  Metlist = NULL,
+  Plots = FALSE,
+  Standardize = TRUE,
+  Alpha = 1,
+  Fold = 4,
+  nlambda = 100
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

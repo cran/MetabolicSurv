@@ -7,6 +7,7 @@
 \alias{show,perm-method}
 \alias{summary,perm-method}
 \alias{plot,perm,ANY-method}
+\alias{perm-method}
 \title{The perm Class.}
 \usage{
 \S4method{show}{perm}(object)

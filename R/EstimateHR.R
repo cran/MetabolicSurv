@@ -1,4 +1,4 @@
-#' Classification, Survival Estimation and Visualization
+ #' Classification, Survival Estimation and Visualization
 #'
 #' The Function  classifies subjects into Low and High risk group using the risk scores based on the cut-off percentile.It also visualize survival fit along with HR estimates.
 #'

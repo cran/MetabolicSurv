@@ -4,9 +4,21 @@
 \alias{CVLasoelacox}
 \title{Cross Validations for Lasso Elastic Net Survival predictive models and Classification}
 \usage{
-CVLasoelacox(Survival, Censor, Mdata, Prognostic, Quantile = 0.5,
-  Metlist = NULL, Standardize = TRUE, Reduce = TRUE, Select = 15,
-  Alpha = 1, Fold = 4, Ncv = 10, nlambda = 100)
+CVLasoelacox(
+  Survival,
+  Censor,
+  Mdata,
+  Prognostic,
+  Quantile = 0.5,
+  Metlist = NULL,
+  Standardize = TRUE,
+  Reduce = TRUE,
+  Select = 15,
+  Alpha = 1,
+  Fold = 4,
+  Ncv = 10,
+  nlambda = 100
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

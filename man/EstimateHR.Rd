@@ -4,8 +4,13 @@
 \alias{EstimateHR}
 \title{Classification, Survival Estimation and Visualization}
 \usage{
-EstimateHR(Risk.Scores, Data.Survival, Prognostic = NULL,
-  Plots = FALSE, Quantile = 0.5)
+EstimateHR(
+  Risk.Scores,
+  Data.Survival,
+  Prognostic = NULL,
+  Plots = FALSE,
+  Quantile = 0.5
+)
 }
 \arguments{
 \item{Risk.Scores}{A vector of risk scores with size equals to number of subjects}

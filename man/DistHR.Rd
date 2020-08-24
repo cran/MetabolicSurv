@@ -4,9 +4,18 @@
 \alias{DistHR}
 \title{Null Distribution of the Estimated HR}
 \usage{
-DistHR(Survival, Censor, Mdata, Prognostic = NULL, Quantile = 0.5,
-  Reduce = FALSE, Select = 15, nperm = 100, case = 2,
-  Validation = c("PLSbased", "PCAbased", "L1based", "MVbased"))
+DistHR(
+  Survival,
+  Censor,
+  Mdata,
+  Prognostic = NULL,
+  Quantile = 0.5,
+  Reduce = FALSE,
+  Select = 15,
+  nperm = 100,
+  case = 2,
+  Validation = c("PLSbased", "PCAbased", "L1based", "MVbased")
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

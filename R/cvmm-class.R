@@ -50,8 +50,7 @@ setClass("cvmm",slots = representation(HRTrain="array",HRTest="array",train="mat
 #' @rdname cvmm-class
 #' @exportMethod show
 #setGeneric("show", function(object,...) standardGeneric("show"))
-
-#' @rdname cvmm-class
+# #' @rdname cvmm-class
 #' @aliases show,cvmm-method
 setMethod("show",signature="cvmm"
           , function(object){
@@ -96,9 +95,7 @@ setMethod("summary",signature="cvmm"
 #' @name cvmm-class
 #' @rdname cvmm-class
 #' @exportMethod plot
-
-#' @rdname cvmm-class
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
+# #' @rdname cvmm-class
 #' @aliases plot,cvmm,ANY-method
 #' @aliases cvmm-method
 setMethod(f="plot", signature = "cvmm",

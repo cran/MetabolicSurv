@@ -4,8 +4,15 @@
 \alias{MSpecificCoxPh}
 \title{Metabolite by metabolite Cox proportional analysis}
 \usage{
-MSpecificCoxPh(Survival, Mdata, Censor, Reduce = FALSE, Select = 15,
-  Prognostic = NULL, Quantile = 0.5)
+MSpecificCoxPh(
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = FALSE,
+  Select = 15,
+  Prognostic = NULL,
+  Quantile = 0.5
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

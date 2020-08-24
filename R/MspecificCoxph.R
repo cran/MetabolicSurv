@@ -2,7 +2,7 @@
 #'
 #' The Function fits cox proportional hazard model and does classification for each metabolite
 #'
-#' This function fits  metabolite by metabolite Cox proportional hazard model and perform the classification based on a speciied quantile risk score which has been estimated using a single  metabolite. Function is useful for majority vote classification method and  metabolite by  metabolite analysis and also for top K  metabolites.
+#' This function fits  metabolite by metabolite Cox proportional hazard model and perform the classification based on a specified quantile. Risk score will be been estimated using a single  metabolite. Function is useful for majority vote classification method and  metabolite by  metabolite analysis and also for top K  metabolites.
 #' @param Survival A vector of survival time with length equals to number of subjects
 #' @param Mdata A large or small metabolic profile matrix. A matrix with metabolic profiles where the number of rows should be equal to the number of metabolites and number of columns should be equal to number of patients.
 #' @param Censor A vector of censoring indicator

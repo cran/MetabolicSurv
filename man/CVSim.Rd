@@ -4,8 +4,7 @@
 \alias{CVSim}
 \title{Cross validation for sequentially increases metabolites}
 \usage{
-CVSim(Object, Top = seq(5, 100, by = 5), Survival, Censor,
-  Prognostic = NULL)
+CVSim(Object, Top = seq(5, 100, by = 5), Survival, Censor, Prognostic = NULL)
 }
 \arguments{
 \item{Object}{An object of class \code{\link[MetabolicSurv]{cvmm}}}

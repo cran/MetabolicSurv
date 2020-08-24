@@ -21,8 +21,6 @@
 #' @seealso \code{\link[survival]{coxph}},  \code{\link[MetabolicSurv]{EstimateHR}}, \code{\link[MetabolicSurv]{MSpecificCoxPh}}, \code{\link[MetabolicSurv]{SurvPcaClass}}, \code{\link[MetabolicSurv]{SurvPcaClass}}
 #' @references
 #' \insertRef{ye2}{MetabolicSurv}
-#'
-#' \insertRef{ye1}{MetabolicSurv}
 #' @examples
 #' \donttest{
 #' ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA

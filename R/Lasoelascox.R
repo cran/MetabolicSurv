@@ -31,7 +31,8 @@
 #' Data = MSData(nPatients = 100, nMet = 150, Prop = 0.5)
 #'
 #' ## USING THE FUNCTION
-#' Results = Lasoelacox(Survival=Data$Survival, Censor=Data$Censor,
+#' Results = Lasoelacox(Survival=D
+#' ata$Survival, Censor=Data$Censor,
 #' Mdata=t(Data$Mdata), Prognostic = Data$Prognostic, Quantile = 0.5,
 #' Metlist = NULL, Plots = FALSE, Standardize = TRUE, Alpha = 1)
 #'

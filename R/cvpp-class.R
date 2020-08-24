@@ -43,9 +43,7 @@ setClass("cvpp",representation(Results="data.frame",Ncv="numeric",Method="vector
 #' @name cvpp
 #' @rdname cvpp-class
 #' @exportMethod show
-#setGeneric("show", function(object) standardGeneric("show"))
-
-#' @rdname cvpp-class
+# #' @rdname cvmv-class
 #' @aliases show,cvpp-method
 setMethod("show",signature="cvpp"
           , function(object){
@@ -62,9 +60,7 @@ setMethod("show",signature="cvpp"
 #' @name cvpp-class
 #' @rdname cvpp-class
 #' @exportMethod summary
-#setGeneric("summary", function(object,...) standardGeneric("summary"))
-
-#' @rdname cvpp-class
+# #' @rdname cvmv-class
 #' @aliases summary,cvpp-method
 setMethod("summary",signature="cvpp", function(object){
   cat("Summary of computation Analysis\n")
@@ -77,16 +73,13 @@ setMethod("summary",signature="cvpp", function(object){
   print(quantile(object@Results[,2],probs=c(0.05,0.25,0.5,0.75,0.95)))
 })
 
-#" setGeneric("plot", function(x,y, ...) standardGeneric("plot"))
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name cvpp-class
 #' @rdname cvpp-class
 #' @exportMethod plot
 #' @import graphics
-
-#' @rdname cvpp-class
+# #' @rdname cvpp-class
 #' @aliases plot,cvpp,missing-method
 #' @aliases cvpp-method
 setMethod("plot", signature(x="cvpp", y="missing"),

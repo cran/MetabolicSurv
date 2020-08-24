@@ -47,9 +47,7 @@ setClass("perm",representation(HRobs="vector",HRperm="matrix",nperm="numeric",Va
 #' @name perm
 #' @rdname perm-class
 #' @exportMethod show
-#setGeneric("show", function(object) standardGeneric("show"))
-
-#' @rdname perm-class
+# #' @rdname cvsim-class
 #' @aliases show,perm-method
 setMethod("show",signature="perm"
           , function(object){
@@ -62,9 +60,7 @@ setMethod("show",signature="perm"
 #' @name perm-class
 #' @rdname perm-class
 #' @exportMethod summary
-#setGeneric("summary", function(object,...) standardGeneric("summary"))
-
-#' @rdname perm-class
+# #' @rdname cvsim-class
 #' @aliases summary,perm-method
 setMethod("summary",signature="perm", function(object){
   cat("Summary of Permutation Analysis\n")
@@ -82,12 +78,10 @@ setMethod("summary",signature="perm", function(object){
 
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name perm-class
 #' @rdname perm-class
 #' @exportMethod plot
-
-#' @rdname perm-class
+# #' @rdname cvsim-class
 #' @aliases plot,perm,ANY-method
 #' @aliases perm-method
 setMethod("plot", signature("perm"),

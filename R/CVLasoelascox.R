@@ -122,7 +122,7 @@ CVLasoelacox <- function (Survival,
   if(is.null(Prognostic)){
     Data <- Mdata
     Data.Full <- t(Mdata)
-    Penalty <- rep(1,row(Data.Full))
+    Penalty <- rep(1,nrow(Data.Full))
   } else{
     Data <- t(Mdata)
     Data.Full <- cbind(Data,Prognostic)

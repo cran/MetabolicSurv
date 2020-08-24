@@ -4,8 +4,16 @@
 \alias{CVMajorityvotes}
 \title{Cross validation for majority votes}
 \usage{
-CVMajorityvotes(Survival, Censor, Prognostic = NULL, Mdata,
-  Reduce = TRUE, Select = 15, Fold = 3, Ncv = 100)
+CVMajorityvotes(
+  Survival,
+  Censor,
+  Prognostic = NULL,
+  Mdata,
+  Reduce = TRUE,
+  Select = 15,
+  Fold = 3,
+  Ncv = 100
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

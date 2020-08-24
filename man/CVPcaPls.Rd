@@ -4,8 +4,17 @@
 \alias{CVPcaPls}
 \title{Cross Validations for PCA and PLS based methods}
 \usage{
-CVPcaPls(Fold = 3, Survival, Mdata, Censor, Reduce = TRUE,
-  Select = 15, Prognostic = NULL, Ncv = 5, DR = "PCA")
+CVPcaPls(
+  Fold = 3,
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = TRUE,
+  Select = 15,
+  Prognostic = NULL,
+  Ncv = 5,
+  DR = "PCA"
+)
 }
 \arguments{
 \item{Fold}{Number of times in which the dataset is divided. Default is 3 which implies dataset will be divided into three groups and 2/3 of the dataset will be the train datset and 1/3 will be to train the results.}
@@ -60,8 +69,6 @@ plot(Result)
 }
 \references{
 \insertRef{ye1}{MetabolicSurv}
-
-\insertRef{ye2}{MetabolicSurv}
 }
 \seealso{
 \code{\link[MetabolicSurv]{SurvPlsClass}},

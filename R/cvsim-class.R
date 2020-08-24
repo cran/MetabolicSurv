@@ -51,9 +51,7 @@ setClass("cvsim",representation(HRpca="array",HRpls="array",Nmets="numeric",Ncv=
 #' @name cvsim
 #' @rdname cvsim-class
 #' @exportMethod show
-#setGeneric("show", function(object) standardGeneric("show"))
-
-#' @rdname cvsim-class
+# #' @rdname cvsim-class
 #' @aliases show,cvsim-method
 setMethod("show",signature="cvsim"
           , function(object){
@@ -66,9 +64,7 @@ setMethod("show",signature="cvsim"
 #' @name cvsim-class
 #' @rdname cvsim-class
 #' @exportMethod summary
-#setGeneric("summary", function(object,...) standardGeneric("summary"))
-
-#' @rdname cvsim-class
+# #' @rdname cvsim-class
 #' @aliases summary,cvsim-method
 setMethod("summary",signature="cvsim", function(object){
   cat("Results Based on Test Data\n")
@@ -95,12 +91,10 @@ setMethod("summary",signature="cvsim", function(object){
 )
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name cvsim-class
 #' @rdname cvsim-class
 #' @exportMethod plot
-
-#' @rdname cvsim-class
+# #' @rdname cvsim-class
 #' @aliases plot,cvsim,missing-method
 #' @aliases cvsim-method
 setMethod("plot", signature(x="cvsim", y="missing"),

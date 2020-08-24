@@ -48,9 +48,7 @@ setClass("ms",slots = list(Result="list",HRRG="matrix",Group="matrix",Metnames="
 #' @name ms
 #' @rdname ms-class
 #' @exportMethod show
-#setGeneric("show", function(object) standardGeneric("show"))
-
-#' @rdname ms-class
+# #' @rdname cvsim-class
 #' @aliases show,ms-method
 #' @aliases ms,ANY
 setMethod("show",signature="ms"
@@ -63,9 +61,7 @@ setMethod("show",signature="ms"
 #' @name ms-class
 #' @rdname ms-class
 #' @exportMethod summary
-# setGeneric("summary", function(object,...) standardGeneric("summary"))
-
-#' @rdname ms-class
+# #' @rdname cvsim-class
 #' @aliases summary,ms-method
 setMethod("summary",signature="ms",function(object){
   cat("Summary of Metabolite by Metabolite CoxPh Models\n")
@@ -92,12 +88,10 @@ setMethod("summary",signature="ms",function(object){
 
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name ms-class
 #' @rdname ms-class
 #' @exportMethod plot
-
-#' @rdname ms-class
+# #' @rdname cvsim-class
 #' @aliases plot,ms,ANY-method
 #' @aliases ms-method
 setMethod(f="plot", signature = "ms",

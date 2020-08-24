@@ -3,7 +3,6 @@
 \docType{package}
 \name{MetabolicSurv}
 \alias{MetabolicSurv}
-\alias{MetabolicSurv-package}
 \title{MetabolicSurv: A biomarker validation approach for predicting survival using metabolic signature.}
 \description{
 This package develope biomarker signature for metabolic data. It contains a set of functions and cross validation methods  to validate and select biomarkers when the outcome of interest is survival. The package can handle prognostic factors and mainly metabolite matrix as input, the package can served as biomarker validation tool.

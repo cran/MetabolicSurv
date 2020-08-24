@@ -5,8 +5,10 @@
 \alias{ms-class}
 \alias{ms}
 \alias{show,ms-method}
+\alias{ms,ANY}
 \alias{summary,ms-method}
 \alias{plot,ms,ANY-method}
+\alias{ms-method}
 \title{The ms Class.}
 \usage{
 \S4method{show}{ms}(object)

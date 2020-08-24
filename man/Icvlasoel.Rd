@@ -4,8 +4,18 @@
 \alias{Icvlasoel}
 \title{Inner and Outer Cross Validations for Lasso Elastic Net Survival predictive models and Classification}
 \usage{
-Icvlasoel(Survival, Censor, Prognostic = NULL, Mdata, Fold = 3,
-  Ncv = 50, Nicv = 100, Alpha = 0.1, TopK, Weights = FALSE)
+Icvlasoel(
+  Survival,
+  Censor,
+  Prognostic = NULL,
+  Mdata,
+  Fold = 3,
+  Ncv = 50,
+  Nicv = 100,
+  Alpha = 0.1,
+  TopK,
+  Weights = FALSE
+)
 }
 \arguments{
 \item{Survival}{A vector of survival time with length equals to number of subjects}

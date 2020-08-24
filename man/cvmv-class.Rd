@@ -7,6 +7,7 @@
 \alias{show,cvmv-method}
 \alias{summary,cvmv-method}
 \alias{plot,cvmv,ANY-method}
+\alias{cvmv-method}
 \title{The cvmv Class.}
 \usage{
 \S4method{show}{cvmv}(object)

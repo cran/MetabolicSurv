@@ -2,7 +2,7 @@ Package: MetabolicSurv
 Type: Package
 Title: A Biomarker Validation Approach for Classification and
         Predicting Survival Using Metabolomics Signature
-Version: 1.1.0
+Version: 1.1.1
 Authors@R: c(
        person("Olajumoke Evangelina","Owokotomo",email="olajumoke.owokotomo@uhasselt.be",role=c("aut","cre")),
        person("Ziv","Shkedy",email="ziv.shkedy@uhasselt.be",role="aut"))
@@ -19,16 +19,16 @@ BugReports: https://github.com/OlajumokeEvangelina/MetabolicSurv/issues/new
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.1.0)
+Depends: R (>= 4.0.0)
 Imports: superpc, glmnet, matrixStats, survminer, survival, rms, tidyr,
-        pls, Rdpack, methods, stats, gplots, ggplot2
+        pls, Rdpack(>= 0.11-0), methods, stats, gplots, ggplot2
 RdMacros: Rdpack
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2019-08-05 08:57:05 UTC; lucp2490
+Packaged: 2020-08-20 10:29:05 UTC; lucp9546
 Author: Olajumoke Evangelina Owokotomo [aut, cre],
   Ziv Shkedy [aut]
 Repository: CRAN
-Date/Publication: 2019-08-05 10:20:02 UTC
+Date/Publication: 2020-08-24 13:20:02 UTC

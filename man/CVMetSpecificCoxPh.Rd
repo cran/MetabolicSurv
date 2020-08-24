@@ -4,8 +4,17 @@
 \alias{CVMetSpecificCoxPh}
 \title{Cross validation for the Metabolite specific analysis}
 \usage{
-CVMetSpecificCoxPh(Fold = 3, Survival, Mdata, Censor, Reduce = TRUE,
-  Select = 150, Prognostic = NULL, Quantile = 0.5, Ncv = 3)
+CVMetSpecificCoxPh(
+  Fold = 3,
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = TRUE,
+  Select = 150,
+  Prognostic = NULL,
+  Quantile = 0.5,
+  Ncv = 3
+)
 }
 \arguments{
 \item{Fold}{Number of times in which the dataset is divided. Default is 3 which implies dataset will be divided into three groups and 2/3 of the dataset will be the train datset and 1/3 will be to train the results.}

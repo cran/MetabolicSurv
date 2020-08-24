@@ -7,6 +7,7 @@
 \alias{show,fcv-method}
 \alias{summary,fcv-method}
 \alias{plot,fcv,missing-method}
+\alias{fcv-method}
 \title{The fcv Class.}
 \usage{
 \S4method{show}{fcv}(object)

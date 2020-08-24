@@ -7,6 +7,7 @@
 \alias{show,cvle-method}
 \alias{summary,cvle-method}
 \alias{plot,cvle,missing-method}
+\alias{cvle-method}
 \title{The cvle Class.}
 \usage{
 \S4method{show}{cvle}(object)

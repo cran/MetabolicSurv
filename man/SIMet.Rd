@@ -4,8 +4,18 @@
 \alias{SIMet}
 \title{Sequential Increase in Metabolites for the PCA or PLS classifier}
 \usage{
-SIMet(TopK = 15, Survival, Mdata, Censor, Reduce = TRUE, Select = 50,
-  Prognostic = NULL, Plot = FALSE, DimMethod = c("PLS", "PCA"), ...)
+SIMet(
+  TopK = 15,
+  Survival,
+  Mdata,
+  Censor,
+  Reduce = TRUE,
+  Select = 50,
+  Prognostic = NULL,
+  Plot = FALSE,
+  DimMethod = c("PLS", "PCA"),
+  ...
+)
 }
 \arguments{
 \item{TopK}{Top K metabolites (15 by default) to be used in the sequential analysis.}
@@ -58,8 +68,6 @@ Example1$TopKplot
 }
 \references{
 \insertRef{ye2}{MetabolicSurv}
-
-\insertRef{ye1}{MetabolicSurv}
 }
 \seealso{
 \code{\link[survival]{coxph}},  \code{\link[MetabolicSurv]{EstimateHR}}, \code{\link[MetabolicSurv]{MSpecificCoxPh}}, \code{\link[MetabolicSurv]{SurvPcaClass}}, \code{\link[MetabolicSurv]{SurvPcaClass}}

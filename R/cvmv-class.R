@@ -44,7 +44,7 @@ setClass("cvmv",representation(HRTrain="matrix",HRTest="matrix",Ncv="numeric",Md
 #' @name cvmv
 #' @rdname cvmv-class
 #' @exportMethod show
-#' @rdname cvmv-class
+# #' @rdname cvmv-class
 #' @aliases show,cvmv-method
 setMethod("show",signature="cvmv"
           , function(object){
@@ -61,7 +61,7 @@ setMethod("show",signature="cvmv"
 #' @name cvmv-class
 #' @rdname cvmv-class
 #' @exportMethod summary
-#' @rdname cvmv-class
+# #' @rdname cvmv-class
 #' @aliases summary,cvmv-method
 setMethod("summary",signature="cvmv", function(object){
   cat("Summary of majority votes cross validation analysis\n")
@@ -76,11 +76,10 @@ setMethod("summary",signature="cvmv", function(object){
 
 
 #' Method plot.
-#' setGeneric("plot",function(x,y,...){standardGeneric("plot")})
 #' @name cvmv-class
 #' @rdname cvmv-class
 #' @exportMethod plot
-#' @rdname cvmv-class
+# #' @rdname cvmv-class
 #' @aliases plot,cvmv,ANY-method
 #' @aliases cvmv-method
 setMethod("plot", signature(x="cvmv"),

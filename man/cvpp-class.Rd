@@ -7,6 +7,7 @@
 \alias{show,cvpp-method}
 \alias{summary,cvpp-method}
 \alias{plot,cvpp,missing-method}
+\alias{cvpp-method}
 \title{The cvpp Class.}
 \usage{
 \S4method{show}{cvpp}(object)
