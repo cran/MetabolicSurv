@@ -20,7 +20,7 @@
 #'   \item{Nicv}{Number of inner cross validations used.}
 #'   \item{TopK}{The Top metabolites used}
 #'   \item{HRInner}{A 3-way array in which first, second, and third dimensions correspond to Nicv, 1, and Ncv respectively. This contains estimated HR for low risk group on the out of bag data.}
-#'   \item{HRTest}{A matrix of survival information for the test dataset based on the out of bag data. It has three columns representing the estimated HR, the 95\% lower confidence interval and the 95\% upper confidence interval.}
+#'   \item{HRTest}{A matrix of survival information for the test dataset based on the out of bag data. It has three columns representing the estimated HR, the 95% lower confidence interval and the 95% upper confidence interval.}
 #'  \item{Weight}{A matrix with columns equals number of TopK metabolites and rows Ncv. Note that Weights are estimated as colMeans of coefficients matrix return from the inner cross validations.}
 #' @author Olajumoke Evangelina Owokotomo, \email{olajumoke.owokotomo@@uhasselt.be}
 #' @author Ziv Shkedy
@@ -54,7 +54,6 @@
 #' @export Icvlasoel
 #' @import tidyr
 #' @import rms
-#' @import matrixStats
 #' @import Rdpack
 
 Icvlasoel<-function(Survival, Censor,Prognostic=NULL,Mdata,Fold=3,Ncv=50,Nicv=100,Alpha=0.1
@@ -206,7 +205,7 @@ Icvlasoel<-function(Survival, Censor,Prognostic=NULL,Mdata,Fold=3,Ncv=50,Nicv=10
   t2 <- proc.time()
   RunTime<-as.vector(t2-t1)[3]
   #----------- results -------------
-  return(new("fcv",Runtime=RunTime, Fold=Fold,  Ncv=Ncv,  Nicv=Nicv,TopK=TopK,
+  return(fcv(Runtime=RunTime, Fold=Fold,  Ncv=Ncv,  Nicv=Nicv,TopK=TopK,
              HRInner=HRInner,HRTest=HRTE,Weight=WeightMat))
 }
 #----------------------------------------------------------- END

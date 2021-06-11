@@ -68,8 +68,7 @@ SurvPlsClass<-function(
 
   if (Reduce) {
     DataForReduction<-list(x=Mdata,y=Survival, censoring.status=Censor, metnames=rownames(Mdata))
-    TentativeList<-names(sort(abs(superpc.train(DataForReduction, type="survival")$feature.scores),decreasing =TRUE))[1:Select]
-    TentativeList
+    TentativeList<-names(sort(abs(superpc::superpc.train(DataForReduction, type="survival")$feature.scores),decreasing =TRUE))[1:Select]
 
     ReduMdata<-Mdata[TentativeList,]
   } else {

@@ -1,8 +1,8 @@
 #'   Wapper function for glmnet
 #'
-#' The function uses the glmnet function to firstly do the variable selection either with Lasso, Elastic net or ridge regressions before the survial analysis. The survival analysis is based on the selected metabolites in the presence or absene of prognostic factors.
+#' The function uses the glmnet function to firstly do the variable selection either with Lasso, Elastic net or ridge regressions before the survial analysis. The survival analysis is based on the selected metabolites in the presence or absence of prognostic factors.
 #'
-#' This is a wrapper function for glmnet and it fits models using either Lasso, Elastic net and Ridge regressions. This is done in the presence or absene of prognostic factors. The prognostic factor when avaialable will always be forced to be in the model so no penalty for it. Optimum lambda will be used to select the non-zero shrinkage coefficients, the nonzero selceted metabolites will thus be used in the survival analysis and in calculation of the risk scores.
+#' This is a wrapper function for glmnet and it fits models using either Lasso, Elastic net and Ridge regressions. This is done in the presence or absence of prognostic factors. The prognostic factor when avaialable will always be forced to be in the model so no penalty for it. Optimum lambda will be used to select the non-zero shrinkage coefficients, the nonzero selected metabolites will thus be used in the survival analysis and in calculation of the risk scores.
 #' @param Survival A vector of survival time with length equals to number of subjects
 #' @param Censor A vector of censoring indicator
 #' @param Mdata A large or small metabolic profile matrix. A matrix with metabolic profiles where the number of rows should be equal to the number of metabolites and number of columns should be equal to number of patients.
@@ -13,7 +13,7 @@
 #' @param Standardize A Logical flag for the standardization of the metabolite matrix, prior to fitting the model sequence. The coefficients are always returned on the original scale. Default is standardize=TRUE.
 #' @param Alpha The mixing parameter for glmnet (see \code{\link[glmnet]{glmnet}}). The range is 0<= Alpha <= 1. The Default is 1
 #' @param Fold number of folds to be used for the cross validation. Its value ranges between 3 and the numbe rof subjects in the dataset
-#' @param nlambda The number of lambda values - default is 100 as in glmnet.
+#' @param nlambda The number of lambda values - default is 100 as in \link[glmnet]{glmnet}.
 #' @return A object is returned with the following values
 #'   \item{Coefficients.NonZero}{The coefficients of the selected metabolites}
 #'   \item{Selected.Mets}{The selected metabolites}
@@ -31,8 +31,7 @@
 #' Data = MSData(nPatients = 100, nMet = 150, Prop = 0.5)
 #'
 #' ## USING THE FUNCTION
-#' Results = Lasoelacox(Survival=D
-#' ata$Survival, Censor=Data$Censor,
+#' Results = Lasoelacox(Survival=Data$Survival, Censor=Data$Censor,
 #' Mdata=t(Data$Mdata), Prognostic = Data$Prognostic, Quantile = 0.5,
 #' Metlist = NULL, Plots = FALSE, Standardize = TRUE, Alpha = 1)
 #'
@@ -51,23 +50,24 @@
 #' Results$Select
 #' @import utils
 #' @import stats
-# #' @import Biobase
+#' @import graphics
+#' @import matrixStats
 
 
 #' @export Lasoelacox
 
 
 Lasoelacox <- function (Survival,
-          Censor,
-          Mdata,
-          Prognostic,
-          Quantile = 0.5,
-          Metlist = NULL,
-          Plots = FALSE,
-          Standardize = TRUE,
-          Alpha = 1,
-          Fold = 4,
-          nlambda = 100)
+                        Censor,
+                        Mdata,
+                        Prognostic,
+                        Quantile = 0.5,
+                        Metlist = NULL,
+                        Plots = FALSE,
+                        Standardize = TRUE,
+                        Alpha = 1,
+                        Fold = 4,
+                        nlambda = 100)
 {
 
   if (missing(Survival)) stop("Argument 'Survival' is missing...")
@@ -87,27 +87,30 @@ Lasoelacox <- function (Survival,
 
   if(is.null(Prognostic)){
     Data <- Mdata
-    Data.Full <- t(Mdata)
-    Penalty <- rep(1,row(Data.Full))
+    Dataa <- data.frame(t(Mdata))
+    Data.Full <-  dplyr::mutate_all(Dataa, ~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x))
+    Penalty <- rep(0,1,ncol(Data.Full))
   } else{
-    Data <- t(Mdata)
+    Dat <- data.frame(t(Mdata))
+    Data <- dplyr::mutate_all(Dat, ~ifelse(is.na(.x), mean(.x, na.rm = TRUE), .x))
     Data.Full <- cbind(Data,Prognostic)
-    Penalty <- c(rep(1,ncol(Data)),rep(0,ncol(Prognostic)))
+    Penalty <- c(0, rep(1,ncol(Data)),rep(0,ncol(Prognostic)))
   }
 
   # Survival times must be larger than 0
 
   Survival[Survival <= 0] <- quantile(Survival, probs = 0.01)
-  Lasso.Cox.CV <- glmnet::cv.glmnet(x = as.matrix(Data.Full),
-                            y = survival::Surv(as.vector(Survival),as.vector(Censor) == 1),
-                            family = 'cox',
-                            alpha = Alpha,
-                            nfolds= Fold,
-                            nlambda = nlambda,
-                            penalty.factor = Penalty,
-                            standardize = Standardize)
+  Censor[Censor <= 0] <- 1
+  Lasso.Cox.CV <- glmnet::cv.glmnet(x = model.matrix( ~ ., Data.Full),
+                                    y = survival::Surv(as.vector(Survival),as.vector(Censor) == 1),
+                                    family = 'cox',
+                                    alpha = Alpha,
+                                    nfolds= Fold,
+                                    nlambda = nlambda,
+                                    penalty.factor = Penalty,
+                                    standardize = Standardize)
 
-
+#as.matrix(Data.Full)
   # Results of the cv.glmnet procedure
 
   Lambda <- Lasso.Cox.CV$lambda.min
@@ -117,7 +120,7 @@ Lasoelacox <- function (Survival,
 
   if (!is.null(dim(Coefficients.NonZero)))
   {
-    Selected.mets <- setdiff(colnames(Data.Full),colnames(Prognostic))
+    Selected.mets <- base::setdiff(colnames(Data.Full),colnames(Prognostic))
     Coefficients.NonZero <- Coefficients[c(Selected.mets,colnames(Prognostic)),]
     Select <- "F"
   }else{
@@ -131,7 +134,7 @@ Lasoelacox <- function (Survival,
 
   else
   {
-    Selected.mets <- setdiff(names(Coefficients.NonZero), colnames(Prognostic))
+    Selected.mets <- base::setdiff(names(Coefficients.NonZero), colnames(Prognostic))
   }
 
 
@@ -155,7 +158,7 @@ Lasoelacox <- function (Survival,
 
     if (!is.null(dim(Coefficients.NonZero)))
     {
-      Selected.mets <- setdiff(colnames(Data.Full),colnames(Prognostic))
+      Selected.mets <- base::setdiff(colnames(Data.Full),colnames(Prognostic))
       Coefficients.NonZero <- Coefficients[c(Selected.mets,colnames(Prognostic)),]
       Select <- "F"
     }else{
@@ -180,7 +183,7 @@ Lasoelacox <- function (Survival,
 
   Data.Survival <- cbind(Survival,Censor)
   Estimation.HR <- EstimateHR(Risk.Scores = Risk.Scores,Data.Survival = Data.Survival,
-                       Prognostic=Prognostic, Plots = FALSE, Quantile =Quantile)
+                              Prognostic=Prognostic, Plots = FALSE, Quantile =Quantile)
   Risk.Group <- Estimation.HR$Riskgroup
   Cox.Fit.Risk.Group <- Estimation.HR$SurvResult
 
@@ -201,12 +204,12 @@ Lasoelacox <- function (Survival,
       lines(log(c(Lasso.Cox.CV$lambda[i], Lasso.Cox.CV$lambda[i])), c(Lasso.Cox.CV$cvlo[i], Lasso.Cox.CV$cvup[i]))
 
     Lasso.Cox <- glmnet::glmnet(x = as.matrix(Data.Full),
-                        y = survival::Surv(as.vector(Survival),as.vector(Censor) == 1),
-                        family = 'cox',
-                        alpha = Alpha,
-                        nlambda = 100,
-                        penalty.factor = Penalty,
-                        standardize = Standardize)
+                                y = survival::Surv(as.vector(Survival),as.vector(Censor) == 1),
+                                family = 'cox',
+                                alpha = Alpha,
+                                nlambda = 100,
+                                penalty.factor = Penalty,
+                                standardize = Standardize)
 
     # Plot 2
 

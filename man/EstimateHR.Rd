@@ -15,7 +15,7 @@ EstimateHR(
 \arguments{
 \item{Risk.Scores}{A vector of risk scores with size equals to number of subjects}
 
-\item{Data.Survival}{A dataframe in which the first column is the Survival and the second column is the Censoring indicator for each subject.}
+\item{Data.Survival}{A dataframe in which the first column is the survival time and the second column is the Censoring indicator for each subject.}
 
 \item{Prognostic}{A dataframe containing possible prognostic(s) factor and/or treatment effect}
 
@@ -25,16 +25,16 @@ EstimateHR(
 }
 \value{
 An object of is returned, which is a list with the results of the cox regression and some informative plot concerning survival of the risk group.
-  \item{SurvResult}{The cox proportional regression result}
-  \item{Riskgroup}{The riskgroup based on the riskscore and the cut off value and length is equal to number of subjects}
-  \item{KMplot}{The Kaplan-Meier survival plot of the riskgroup}
-  \item{SurvBPlot}{The distribution of the survival in the riskgroup}
+\item{SurvResult}{The cox proportional regression result}
+\item{Riskgroup}{The riskgroup based on the riskscore and the cut off value and length is equal to number of subjects}
+\item{KMplot}{The Kaplan-Meier survival plot of the riskgroup}
+\item{SurvBPlot}{The distribution of the survival in the riskgroup}
 }
 \description{
-The Function  classifies subjects into Low and High risk group using the risk scores based on the cut-off percentile.It also visualize survival fit along with HR estimates.
+The Function  classifies subjects into low and high risk group using the risk scores based on the cut-off percentile specified. It also visualize survival fit along with HR estimates.
 }
 \details{
-The risk scores obtained using the signature is then used to generate the risk group by dividing subjects into low and high risk group. A Cox model is then fitted with the risk group as covariate in the presence or absence of  prognostic factors and or treatment effect. The extent of survival in the risk groups is known
+The risk scores obtained using the signature is used to generate the risk group by dividing subjects into low and high risk group. A Cox model is then fitted with the risk group as covariate in the presence or absence of  prognostic factors and or treatment effect. The extent of survival in the risk groups is known.
 }
 \examples{
 ### Classification and estimating with prognostic factors

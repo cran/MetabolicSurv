@@ -1,10 +1,10 @@
- #' Classification, Survival Estimation and Visualization
+#' Classification, Survival Estimation and Visualization
 #'
-#' The Function  classifies subjects into Low and High risk group using the risk scores based on the cut-off percentile.It also visualize survival fit along with HR estimates.
+#' The Function  classifies subjects into low and high risk group using the risk scores based on the cut-off percentile specified. It also visualize survival fit along with HR estimates.
 #'
-#' The risk scores obtained using the signature is then used to generate the risk group by dividing subjects into low and high risk group. A Cox model is then fitted with the risk group as covariate in the presence or absence of  prognostic factors and or treatment effect. The extent of survival in the risk groups is known
+#' The risk scores obtained using the signature is used to generate the risk group by dividing subjects into low and high risk group. A Cox model is then fitted with the risk group as covariate in the presence or absence of  prognostic factors and or treatment effect. The extent of survival in the risk groups is known.
 #' @param Risk.Scores A vector of risk scores with size equals to number of subjects
-#' @param Data.Survival A dataframe in which the first column is the Survival and the second column is the Censoring indicator for each subject.
+#' @param Data.Survival A dataframe in which the first column is the survival time and the second column is the Censoring indicator for each subject.
 #' @param Prognostic A dataframe containing possible prognostic(s) factor and/or treatment effect
 #' @param Plots A boolean parameter indicating if plots should be shown. Default is FALSE
 #' @param Quantile The cut off value for the classifier, default is the median cutoff
@@ -98,5 +98,5 @@ EstimateHR<-function(Risk.Scores,Data.Survival,
   } else{
     return(list(SurvResult=Cox.Fit.Risk.Group,Riskgroup=Risk.Group))
   }
-  }
+}
 

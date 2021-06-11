@@ -7,7 +7,7 @@
 #' \item{Riskscore}{Riskscores of the subjects}
 #'   \item{Survival}{Overall survival of the subjects}
 #'   \item{Censor}{Censoring indicator for all the patients; 1= Dead and 0 = Alive}
-#'   \item{Gender}{The first prognostic factor which is the gender of all the patients; 1=Male and 0 = Female}
+#'   \item{Gender}{The first prognostic factor which is the gender of  all the patients; 1=Male and 0 = Female}
 #'   \item{Stage}{The second prognostic factor which is the cancer stage of all the patients; 1= Early stage and 0= Advanced stage}
 #'   ...
 #' }

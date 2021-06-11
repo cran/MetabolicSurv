@@ -5,7 +5,6 @@ average=function(x){
   c(transposex %*% rep(1, nn))/nn
 }
 
-
 #-----------------------------------END OF function for the mean ------------------------------------
 
 

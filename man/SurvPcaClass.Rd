@@ -34,19 +34,19 @@ SurvPcaClass(
 }
 \value{
 A object of class SurvPca is returned with the following values
-  \item{Survfit}{The cox proportional regression result using the first PCA}
-  \item{Riskscores}{A vector of risk scores which is equal to the number of patents.}
-  \item{Riskgroup}{The classification of the subjects based on the PCA into low or high risk group}
-  \item{pc1}{The First PCA scores based on either the reduced Metabolite matrix or the full matrix}
+\item{Survfit}{The cox proportional regression result using the first PCA}
+\item{Riskscores}{A vector of risk scores which is equal to the number of patents.}
+\item{Riskgroup}{The classification of the subjects based on the PCA into low or high risk group}
+\item{pc1}{The First PCA scores based on either the reduced Metabolite matrix or the full matrix}
 \item{KMplot}{The Kaplan-Meier survival plot of the riskgroup}
- \item{SurvBPlot}{The distribution of the survival in the riskgroup}
- \item{Riskpca}{The plot of  Risk scores vs first PCA}
+\item{SurvBPlot}{The distribution of the survival in the riskgroup}
+\item{Riskpca}{The plot of  Risk scores vs first PCA}
 }
 \description{
 The function performs principal component analysis (PCA) on Metabolomics matrix and fit Cox proportional hazard model with covariates using also the first PCA as covariates.
 }
 \details{
-This function can also be used to perform the grid analysis where the grid will be several quantile values and default is 0.5 which is the median cut-off. This function can handle single and multiple metabolites. For larger Metabolomics matrix, this function will reduce largerMetabolomics matrix to smaller version using supervised pca approach and this is by default done and can be control by using the argument Reduce. Other prognostic factors can be included to the model.
+This function can also be used to perform the grid analysis where the grid will be several quantile values and default is 0.5 which is the median cut-off. This function can handle single and multiple metabolites. For larger Metabolomics matrix, this function will reduce larger Metabolomics matrix to smaller version using supervised pca approach and this is by default done and can be control by using the argument Reduce. Other prognostic factors can be included to the model.
 }
 \examples{
 ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA
@@ -75,7 +75,7 @@ Result$pc1
 \seealso{
 \code{\link[survival]{coxph}},
 \code{\link[MetabolicSurv]{EstimateHR}}, \code{\link[stats]{princomp}},
- \code{\link[MetabolicSurv]{SurvPlsClass}}
+\code{\link[MetabolicSurv]{SurvPlsClass}}
 }
 \author{
 Olajumoke Evangelina Owokotomo, \email{olajumoke.owokotomo@uhasselt.be}

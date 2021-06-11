@@ -31,16 +31,16 @@ MSpecificCoxPh(
 }
 \value{
 A object of class \code{\link[MetabolicSurv]{ms}} is returned with the following values
-  \item{Result}{The cox proportional regression result for each metabolite}
-  \item{HRRG}{The hazard ratio statistics (Hazard-ratio, Lower confidence interval and upper confidence interval) of the riskgroup based on the riskscore and the cut off value for each metabolite}
-  \item{Group}{The classification of the subjects based on each metabolite analysis}
-  \item{Metnames}{The names of the metabolites for the analysis}
+\item{Result}{The cox proportional regression result for each metabolite}
+\item{HRRG}{The hazard ratio statistics (Hazard-ratio, Lower confidence interval and upper confidence interval) of the riskgroup based on the riskscore and the cut off value for each metabolite}
+\item{Group}{The classification of the subjects based on each metabolite analysis}
+\item{Metnames}{The names of the metabolites for the analysis}
 }
 \description{
 The Function fits cox proportional hazard model and does classification for each metabolite
 }
 \details{
-This function fits  metabolite by metabolite Cox proportional hazard model and perform the classification based on a speciied quantile risk score which has been estimated using a single  metabolite. Function is useful for majority vote classification method and  metabolite by  metabolite analysis and also for top K  metabolites.
+This function fits  metabolite by metabolite Cox proportional hazard model and perform the classification based on a specified quantile. Risk score will be been estimated using a single  metabolite. Function is useful for majority vote classification method and  metabolite by  metabolite analysis and also for top K  metabolites.
 }
 \examples{
 ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA

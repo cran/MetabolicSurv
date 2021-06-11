@@ -4,7 +4,7 @@
 \alias{MetFreq}
 \title{Frequency of Selected Metabolites from the LASSO, Elastic-net Cross-Validation}
 \usage{
-MetFreq(Object, TopK = 20, N = 3)
+MetFreq(Object, TopK = NULL, N = 3)
 }
 \arguments{
 \item{Object}{An object of class \code{\link[MetabolicSurv]{cvle}} returned from the function \code{\link[MetabolicSurv]{CVLasoelacox}}.}

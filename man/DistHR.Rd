@@ -46,10 +46,10 @@ DistHR(
 }
 \value{
 A object of class \code{\link[MetabolicSurv]{perm}} is returned with the following values
-  \item{HRobs}{Estimated HR for low risk group on the original data}
-  \item{HRperm}{Estimated HR for low risk group on the permuted data}
-  \item{nperm}{Number of permutations carried out}
-  \item{Validation}{The validation scheme that was used}
+\item{HRobs}{Estimated HR for low risk group on the original data}
+\item{HRperm}{Estimated HR for low risk group on the permuted data}
+\item{nperm}{Number of permutations carried out}
+\item{Validation}{The validation scheme that was used}
 }
 \description{
 This function generates the null distribution of the HR by permutation approach. Several ways of permutation setting can be implemented. That is, function can be used to generate null distributions for four different validation schemes, PLS based, PCA based, Majority votes based and Lasso based.

@@ -154,5 +154,5 @@ CVPcaPls<-function(Fold = 3,
 
   Results<-data.frame(Training=HRp.train[,1],Test=as.numeric(HRp.test[,1]))
 
-  return(new("cvpp",Results=Results,Ncv=Ncv,Method=DR,CVtrain=cv.train,CVtest=cv.test,Select=n.mets))
+  return(cvpp(Results=Results,Ncv=Ncv,Method=DR,CVtrain=cv.train,CVtest=cv.test,Nmet=n.mets))
 }

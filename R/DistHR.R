@@ -1,4 +1,4 @@
-#'Null Distribution of the Estimated HR
+#' Null Distribution of the Estimated HR
 #'
 #' This function generates the null distribution of the HR by permutation approach. Several ways of permutation setting can be implemented. That is, function can be used to generate null distributions for four different validation schemes, PLS based, PCA based, Majority votes based and Lasso based.
 #'
@@ -214,6 +214,6 @@ DistHR<-function(Survival,
     if ( is.null(Prognostic)) HRlowObs<-summary(TempObs$SurvFit)[[8]][-2]
   }
 
-  return(new("perm",HRobs=HRlowObs,HRperm=HRlowPerm,nperm=nperm,Validation=Validation))
+  return(perm(HRobs=HRlowObs,HRperm=HRlowPerm,nperm=nperm,Validation=Validation))
 
 }

@@ -15,17 +15,19 @@ MSData(nPatients = 100, nMet = 150, Prop = 0.5)
 }
 \value{
 An object of class list is returned with the following items .
-  \item{Censor}{The censoring/event indicator}
-  \item{Survival}{The Survival time}
-  \item{Met.names}{The vector of metabolites}
-  \item{Mdata}{The metabolic profile matrix}
-  \item{Prognostic}{A data frame with prognostic factors.}
+\item{Censor}{The censoring/event indicator}
+\item{Survival}{The Survival time}
+\item{Met.names}{The vector of metabolites name}
+\item{Mdata}{The metabolic profile matrix}
+\item{Prognostic}{A data frame with prognostic factors.}
 }
 \description{
-The Function generates metabolic profile of any number of patients and also their survival information.
+The Function generates metabolic profile and survival dataset of any number of patients and also their survival information.
 }
 \details{
-The function generates the metabolic profile where small set of metabolites (30) are informative and rest of them are set as noisy metabolites. Next to that Survival time and Censoring information are generated based on first right singular vectors of \code{\link[base]{svd}} of the metabolic profile matrix. It also generates other prognostic factors such as Age, Stage and Gender which are slightly correlated with survival time.
+The function generates the metabolic profile where small set of metabolites (30) are informative and rest of them are set as noisy metabolites.
+Also, the survival time and Censoring information are generated based on first right singular vectors of \code{\link[base]{svd}} of the metabolic profile matrix.
+It also generates other prognostic factors such as Age, Stage and Gender which are slightly correlated with survival time.
 }
 \examples{
 #GENERATE SOME METABOLIC SURVIVAL DATA WITH PROGNOSTIC FACTORS
@@ -39,7 +41,7 @@ MetData<-Data$Mdata
 Metnames<-Data$Met.names
 }
 \seealso{
-\code{\link[survival]{coxph}}, \code{\link[MetabolicSurv]{DataHR}}
+\code{\link[survival]{coxph}}
 }
 \author{
 Olajumoke Evangelina Owokotomo, \email{olajumoke.owokotomo@uhasselt.be}

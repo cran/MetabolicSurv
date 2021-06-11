@@ -37,11 +37,11 @@ CVPcaPls(
 }
 \value{
 A object of class \code{\link[MetabolicSurv]{cvpp}} is returned with the following values
-  \item{Result}{A dataframe containg the estimated Hazard ratio of the test dataset and the training dataset}
- \item{Ncv}{The number of cross validation performed}
-  \item{Method}{The dimesion reduction method used}
-  \item{CVtrain}{The training dataset indices matrix used for the cross validation}
-  \item{CVtest}{The test dataset indices matrix used for the cross validation}
+\item{Result}{A dataframe containg the estimated Hazard ratio of the test dataset and the training dataset}
+\item{Ncv}{The number of cross validation performed}
+\item{Method}{The dimesion reduction method used}
+\item{CVtrain}{The training dataset indices matrix used for the cross validation}
+\item{CVtest}{The test dataset indices matrix used for the cross validation}
 \item{Select}{The number of metabolite used for the dimesion reduction method used}
 }
 \description{

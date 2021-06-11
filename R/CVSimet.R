@@ -2,7 +2,7 @@
 #'
 #' This function does cross validation for the metabolite by metabolite analysis while sequentially increasing the number of metabolites as specified.
 #'
-#' The function is a cross validation version of the function \code{\link[MetabolicSurv]{SIMet}}. This function firstly processes the cross validation for the metabolite by metabolite  analysis results, and then sequentially considers top k metabolites. The function recompute first PCA or PLS on train data and estimate risk scores on both test and train data only on the metabolite matrix with top k metabolites. Patients are then classified as having low or high risk based on the test data where the cutoff used is median of the risk score. The process is repeated for each top K metabolite sets.
+#' This function firstly processes the cross validation for the metabolite by metabolite  analysis results, and then sequentially considers top k metabolites. The function recompute first PCA or PLS on train data and estimate risk scores on both test and train data only on the metabolite matrix with top k metabolites. Patients are then classified as having low or high risk based on the test data where the cutoff used is median of the risk score. The process is repeated for each top K metabolite sets.
 #' @param Object An object of class \code{\link[MetabolicSurv]{cvmm}}
 #' @param Top The Top k number of metabolites to be used
 #' @param Survival A vector of survival time with length equals to number of subjects
@@ -16,7 +16,7 @@
 #'   \item{Top}{A sequence of top k metabolites considered. Default is Top=seq(5,100,by=5)}
 #' @author Olajumoke Evangelina Owokotomo, \email{olajumoke.owokotomo@@uhasselt.be}
 #' @author Ziv Shkedy
-#' @seealso \code{\link[MetabolicSurv]{MSpecificCoxPh}}, \code{\link[MetabolicSurv]{SIMet}}
+#' @seealso \code{\link[MetabolicSurv]{MSpecificCoxPh}}
 #' @examples
 #' \donttest{
 #' ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA
@@ -28,15 +28,15 @@
 #' Prognostic=Data$Prognostic,Quantile = 0.5,Ncv=3)
 #'
 #' ## USING THE FUNCTION
-#'  Result2 = CVSim(Result, Top = seq(5, 100, by = 5), Data$Survival,
+#'  Result2 = CVSimet(Result, Top = seq(5, 100, by = 5), Data$Survival,
 #'  Data$Censor,Prognostic = Data$Prognostic)
 #'
 #' ## GET THE CLASS OF THE OBJECT
 #' class(Result2)     # An "cvsim" Class
 #' }
-#' @export CVSim
+#' @export CVSimet
 
-CVSim<-function(Object,Top=seq(5,100,by=5),Survival,Censor, Prognostic=NULL){
+CVSimet<-function(Object,Top=seq(5,100,by=5),Survival,Censor, Prognostic=NULL){
 
    Decrease=FALSE
   if (class(Object)!="cvmm") stop("Invalid class object.")
@@ -106,5 +106,5 @@ CVSim<-function(Object,Top=seq(5,100,by=5),Survival,Censor, Prognostic=NULL){
 
   Ncv<-Object@Ncv
   n.mets<-Object@n.mets
-  return(new("cvsim",HRpca=HRPC,HRpls=HRPL,Nmets=n.mets,Ncv=Ncv,Top=Top))
+  return(cvsim(HRpca=HRPC,HRpls=HRPL,Nmets=n.mets,Ncv=Ncv,Top=Top))
   }

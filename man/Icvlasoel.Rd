@@ -40,14 +40,14 @@ Icvlasoel(
 }
 \value{
 A object of class \code{\link[MetabolicSurv]{fcv}} is returned with the following values
-  \item{Runtime}{A vector of runtime for each iteration measured in seconds.}
-  \item{Fold}{Number of folds used.}
-  \item{Ncv}{Number of outer cross validations used.}
-  \item{Nicv}{Number of inner cross validations used.}
-  \item{TopK}{The Top metabolites used}
-  \item{HRInner}{A 3-way array in which first, second, and third dimensions correspond to Nicv, 1, and Ncv respectively. This contains estimated HR for low risk group on the out of bag data.}
-  \item{HRTest}{A matrix of survival information for the test dataset based on the out of bag data. It has three columns representing the estimated HR, the 95\% lower confidence interval and the 95\% upper confidence interval.}
- \item{Weight}{A matrix with columns equals number of TopK metabolites and rows Ncv. Note that Weights are estimated as colMeans of coefficients matrix return from the inner cross validations.}
+\item{Runtime}{A vector of runtime for each iteration measured in seconds.}
+\item{Fold}{Number of folds used.}
+\item{Ncv}{Number of outer cross validations used.}
+\item{Nicv}{Number of inner cross validations used.}
+\item{TopK}{The Top metabolites used}
+\item{HRInner}{A 3-way array in which first, second, and third dimensions correspond to Nicv, 1, and Ncv respectively. This contains estimated HR for low risk group on the out of bag data.}
+\item{HRTest}{A matrix of survival information for the test dataset based on the out of bag data. It has three columns representing the estimated HR, the 95\% lower confidence interval and the 95\% upper confidence interval.}
+\item{Weight}{A matrix with columns equals number of TopK metabolites and rows Ncv. Note that Weights are estimated as colMeans of coefficients matrix return from the inner cross validations.}
 }
 \description{
 The function does cross validation for Lasso, Elastic net and Ridge regressions models based on fixed or top selected metabolites from \code{\link[MetabolicSurv]{CVLasoelacox}} with classifier validated on a independent sample for the survial analysis and classification. The survival analysis is based on the selected metabolites in the presence or absene of prognostic factors.

@@ -22,5 +22,5 @@ R package `MetabolicSurv` identifies metabolic biomarker signature for metabolic
 
 Sensitivity analysis on the quantile measure used for the classification can be accessed to check the deviation of the classification group based on the quantile specified. Large scale cross validation can be performed in order to investigate the mostly selected predictive metabolites and for internal validation using the test dataset. During the evaluation process, validation is accessed using the hazard ratios (HR) distribution for the low risk group on the test dataset. Inference is mainly based on resampling methods, permutations in which null distribution of the estimated HR is approximated. 
 
-*Keywords: Biosurvmet; Biomarkers; Classification; Predictive metabolite ; Survival*
+*Keywords: MetabolicSurv; Biomarkers; Classification; Predictive metabolite ; Survival*
 

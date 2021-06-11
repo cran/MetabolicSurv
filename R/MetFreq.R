@@ -31,7 +31,7 @@
 #' }
 #' @export MetFreq
 
-MetFreq<-function(Object,TopK=20,N=3){
+MetFreq<-function(Object,TopK=NULL,N=3){
 
   #Decrease=FALSE
   if (class(Object)!="cvle") stop("Invalid object class.")

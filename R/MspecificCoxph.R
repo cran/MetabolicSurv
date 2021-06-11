@@ -55,8 +55,7 @@ MSpecificCoxPh<-function(Survival,
 
   if (Reduce) {
     DataForReduction<-list(x=Mdata,y=Survival, censoring.status=Censor, metabolitenames=rownames(Mdata))
-    TentativeList<-names(sort(abs(superpc.train(DataForReduction, type="survival")$feature.scores),decreasing =TRUE))[1:Select]
-    TentativeList
+    TentativeList<-names(sort(abs(superpc::superpc.train(DataForReduction, type="survival")$feature.scores),decreasing =TRUE))[1:Select]
 
     ReduMdata<-Mdata[TentativeList,]
   } else {
@@ -109,5 +108,5 @@ MSpecificCoxPh<-function(Survival,
   rownames(gr) = Metnames
   colnames(gr) = paste0("Subject", 1: ncol(ReduMdata))
 
-  return(new("ms",Result=res,HRRG=HRp,Group=gr,Metnames = Metnames))
+  return(ms(Result=res,HRRG=HRp,Group=gr,Metnames = Metnames))
 }

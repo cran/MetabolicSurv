@@ -19,10 +19,10 @@ Majorityvotes(Result, Prognostic, Survival, Censor, J = 1)
 }
 \value{
 A list is returned with the following values
-  \item{Model.result}{The cox proportional regression result based on the majority vote classification}
-  \item{N}{The majority vote for each subject}
-  \item{Classif}{The majority vote classification for each subjects}
-  \item{Group}{The classification of the subjects based on each metabolite analysis}
+\item{Model.result}{The cox proportional regression result based on the majority vote classification}
+\item{N}{The majority vote for each subject}
+\item{Classif}{The majority vote classification for each subjects}
+\item{Group}{The classification of the subjects based on each metabolite analysis}
 }
 \description{
 The Function fits cox proportional hazard model and does classification based on the majority votes.

@@ -1,25 +1,52 @@
 #'Cross validation for the Metabolite specific analysis
 #'
-#' The function performs cross validation for each metabolite depending the number of fold which guides the division into the train and testing dataset. The classifier is then obtained on the training dataset to be validated on the test dataset
+#' The function performs cross validation for each metabolite depending the
+#' number of fold which guides the division into the train and testing dataset.
+#' The classifier is then obtained on the training dataset to be validated on
+#' the test dataset
 #'
-#' This function performs the cross validation for metabolite by metabolite analysis. The data will firstly be divided into data train dataset and test datset. Furthermore, a metabolite-specific model is fitted on train data and a classifier is built. In addition, the classifier is then evaluated on test dataset for each particular metabolite. The Process is repeated for all the full or reduced metabolites to obtaind the HR statistics of the low risk group. The following steps depends on the number of cross validation specified.
-#' @param Fold Number of times in which the dataset is divided. Default is 3 which implies dataset will be divided into three groups and 2/3 of the dataset will be the train datset and 1/3 will be to train the results.
-#' @param Survival A vector of survival time with length equals to number of subjects
-#' @param Mdata A large or small metabolic profile matrix. A matrix with metabolic profiles where the number of rows should be equal to the number of metabolites and number of columns should be equal to number of patients.
+#' This function performs the cross validation for metabolite by metabolite
+#' analysis. The data will firstly be divided into data train dataset and test
+#' datset. Furthermore, a metabolite-specific model is fitted on train data and
+#'  a classifier is built. In addition, the classifier is then evaluated on test
+#'   dataset for each particular metabolite. The Process is repeated for all the
+#'    full or reduced metabolites to obtaind the HR statistics of the low risk
+#'    group. The following steps depends on the number of cross validation
+#'    specified.
+#' @param Fold Number of times in which the dataset is divided. Default is
+#' 3 which implies dataset will be divided into three groups and 2/3 of the
+#' dataset will be the train datset and 1/3 will be to train the results.
+#' @param Survival A vector of survival time with length equals to number
+#' of subjects
+#' @param Mdata A large or small metabolic profile matrix. A matrix with
+#' metabolic profiles where the number of rows should be equal to the
+#' number of metabolites and number of columns should be equal to number
+#' of patients.
 #' @param Censor A vector of censoring indicator
-#' @param Reduce A boolean parameter indicating if the metabolic profile matrix should be reduced, default is TRUE and larger metabolic profile matrix is reduced by supervised pca approach and first pca is extracted from the reduced matrix to be used in the classifier.
-#' @param Select Number of metabolites (default is 15) to be selected from supervised PCA. This is valid only if th argument Reduce=TRUE
-#' @param Prognostic A dataframe containing possible prognostic(s) factor and/or treatment effect to be used in the model.
-#' @param Quantile The cut off value for the classifier, default is the median cutoff
-#' @param Ncv The Number of cross validation loop. Default is 50 but it is recommended to have at least 100.
-#' @return A object of class \code{\link[MetabolicSurv]{cvmm}} is returned with the following values
-#'   \item{HRTrain}{The Train dataset HR statistics for each metabolite by the number of CV}
-#'   \item{HRTest}{The Test dataset HR statistics for each metabolite by the number of CV}
+#' @param Reduce A boolean parameter indicating if the metabolic profile
+#' matrix should be reduced, default is TRUE and larger metabolic profile
+#' matrix is reduced by supervised pca approach and first pca is extracted
+#' from the reduced matrix to be used in the classifier.
+#' @param Select Number of metabolites (default is 15) to be selected from
+#' supervised PCA. This is valid only if th argument Reduce=TRUE
+#' @param Prognostic A dataframe containing possible prognostic(s) factor
+#' and/or treatment effect to be used in the model.
+#' @param Quantile The cut off value for the classifier, default is the
+#' median cutoff
+#' @param Ncv The Number of cross validation loop. Default is 50 but it is
+#' recommended to have at least 100.
+#' @return A object of class \code{\link[MetabolicSurv]{cvmm}} is returned
+#' with the following values
+#'   \item{HRTrain}{The Train dataset HR statistics for each metabolite by
+#'   the number of CV}
+#'   \item{HRTest}{The Test dataset HR statistics for each metabolite by
+#'   the number of CV}
 #'   \item{train}{The selected subjects for each CV in the train dataset}
 #'   \item{train}{The selected subjects for each CV in the test dataset}
 #' \item{n.mets}{The number of metabolite used in the analysis}
 #'  \item{Ncv}{The number of cross validation performed}
-#'  \item{Rdata}{The Metabolite data matrix that was used for the analysis either same as Mdata or a reduced version.}
+#'  \item{Rdata}{The Metabolite data matrix that was used for the analysis
+#'  either same as Mdata or a reduced version.}
 #' @author Olajumoke Evangelina Owokotomo, \email{olajumoke.owokotomo@@uhasselt.be}
 #' @author Ziv Shkedy
 #' @seealso \code{\link[survival]{coxph}},
@@ -137,5 +164,5 @@ CVMetSpecificCoxPh<-function(Fold=3,
 
   }#--------------------------END OF loop over CV ---------------------------------------
 
-  return(new("cvmm",HRTrain=HRTrain,HRTest=HRTest,train=train,test=test,n.mets=n.mets,Ncv=Ncv,Rdata = ReduMdata))
+  return(cvmm(HRTrain=HRTrain,HRTest=HRTest,train=train,test=test,n.mets=n.mets,Ncv=Ncv,Rdata = ReduMdata))
 }

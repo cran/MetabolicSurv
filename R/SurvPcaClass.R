@@ -24,6 +24,7 @@
 #' @seealso \code{\link[survival]{coxph}},
 #' \code{\link[MetabolicSurv]{EstimateHR}}, \code{\link[stats]{princomp}},
 #'  \code{\link[MetabolicSurv]{SurvPlsClass}}
+#' @importFrom Rdpack reprompt
 #' @references
 #' \insertRef{ye1}{MetabolicSurv}
 #' @examples
@@ -69,7 +70,6 @@ SurvPcaClass<-function(
   if (Reduce) {
     DataForReduction<-list(x=Mdata,y=Survival, censoring.status=Censor, metnames=rownames(Mdata))
     TentativeList<-names(sort(abs(superpc::superpc.train(DataForReduction, type="survival")$feature.scores),decreasing =TRUE))[1:Select]
-    TentativeList
 
     ReduMdata<-Mdata[TentativeList,]
   } else {

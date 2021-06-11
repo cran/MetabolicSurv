@@ -39,23 +39,23 @@ Lasoelacox(
 
 \item{Fold}{number of folds to be used for the cross validation. Its value ranges between 3 and the numbe rof subjects in the dataset}
 
-\item{nlambda}{The number of lambda values - default is 100 as in glmnet.}
+\item{nlambda}{The number of lambda values - default is 100 as in \link[glmnet]{glmnet}.}
 }
 \value{
 A object is returned with the following values
-  \item{Coefficients.NonZero}{The coefficients of the selected metabolites}
-  \item{Selected.Mets}{The selected metabolites}
-  \item{n}{The number of selected metabolites}
-  \item{Risk.scores}{The risk scores of the subjects}
-  \item{Risk.group}{The risk classification of the subjects based on the specified quantile}
-  \item{SurvFit}{The cox analysis of the riskgroup based on the selected metabolites and the prognostic factors}
-  \item{Select}{A Boolean argument indicating if there was selection or not}
+\item{Coefficients.NonZero}{The coefficients of the selected metabolites}
+\item{Selected.Mets}{The selected metabolites}
+\item{n}{The number of selected metabolites}
+\item{Risk.scores}{The risk scores of the subjects}
+\item{Risk.group}{The risk classification of the subjects based on the specified quantile}
+\item{SurvFit}{The cox analysis of the riskgroup based on the selected metabolites and the prognostic factors}
+\item{Select}{A Boolean argument indicating if there was selection or not}
 }
 \description{
-The function uses the glmnet function to firstly do the variable selection either with Lasso, Elastic net or ridge regressions before the survial analysis. The survival analysis is based on the selected metabolites in the presence or absene of prognostic factors.
+The function uses the glmnet function to firstly do the variable selection either with Lasso, Elastic net or ridge regressions before the survial analysis. The survival analysis is based on the selected metabolites in the presence or absence of prognostic factors.
 }
 \details{
-This is a wrapper function for glmnet and it fits models using either Lasso, Elastic net and Ridge regressions. This is done in the presence or absene of prognostic factors. The prognostic factor when avaialable will always be forced to be in the model so no penalty for it. Optimum lambda will be used to select the non-zero shrinkage coefficients, the nonzero selceted metabolites will thus be used in the survival analysis and in calculation of the risk scores.
+This is a wrapper function for glmnet and it fits models using either Lasso, Elastic net and Ridge regressions. This is done in the presence or absence of prognostic factors. The prognostic factor when avaialable will always be forced to be in the model so no penalty for it. Optimum lambda will be used to select the non-zero shrinkage coefficients, the nonzero selected metabolites will thus be used in the survival analysis and in calculation of the risk scores.
 }
 \examples{
 ## FIRSTLY SIMULATING A METABOLIC SURVIVAL DATA
